@@ -2,9 +2,10 @@
 
 @php
 $classes = match($variant) {
-    'primary' => 'bg-[#E4572E] text-white hover:bg-[#c8461f] focus-visible:ring-[#E4572E]',
+    'primary' => 'bg-[#E8A33D] text-[#0B0908] hover:bg-[#f0b458] focus-visible:ring-[#E8A33D]',
     'outline' => 'bg-white/5 text-white border border-white/15 hover:border-white/40 focus-visible:ring-white',
-    default => 'bg-[#E4572E] text-white hover:bg-[#c8461f] focus-visible:ring-[#E4572E]',
+    'secondary' => 'bg-transparent text-white border border-white/60 hover:bg-white/10 focus-visible:ring-white',
+    default => 'bg-[#E8A33D] text-[#0B0908] hover:bg-[#f0b458] focus-visible:ring-[#E8A33D]',
 };
 @endphp
 
