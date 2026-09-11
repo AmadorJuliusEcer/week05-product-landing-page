@@ -1,152 +1,208 @@
-# Big Belly's — Responsive Product Landing Page
+# Master Katsu — Responsive Product Landing Page
 
-A responsive restaurant landing page built with Laravel, Blade Components, and Tailwind CSS for **Big Belly's**, a real Filipino restaurant based in Los Baños, Laguna, established in 2011.
+A responsive landing page built for **Master Katsu**, a home-style chicken katsu food business serving Brgy. San Roque and Brgy. Nanhaya, Victoria, Laguna. This project was developed as part of **ITST 302 – Client-Server Technologies, Week 5 Laboratory Activity (Mini Project 04)**, using **Laravel**, **Blade Components**, and **Tailwind CSS**.
 
-🔗 **Live Repository:** https://github.com/PatrickHaroldCabangon/week05-product-landing-page
+🔗 **Live Repository:** https://github.com/AmadorJuliusEcer/week05-product-landing-page
 
 ---
 
 ## 1. Introduction
 
-A **product landing page** is a single, focused web page designed to introduce a business, product, or service and guide visitors toward a specific action — in this case, viewing the menu or visiting the restaurant. Landing pages matter because they are often a customer's first impression of a business online: a clear, well-designed page builds trust, communicates value quickly, and increases the chance that a visitor becomes a customer.
+A **product landing page** is a single, focused web page designed to introduce a product or service, communicate its value clearly, and guide visitors toward a specific action — in this case, ordering food. Unlike a full multi-page website, a landing page keeps everything a customer needs to decide and act in one scrollable experience: what the brand offers, why it's worth trying, how much it costs, and how to reach out.
 
-The purpose of this project is to design and build a modern, responsive landing page for a real local business (Big Belly's) using Laravel Blade Components and Tailwind CSS, applying component-based frontend architecture and responsive design principles learned in this module.
+For small and local businesses like Master Katsu, a landing page is often the first digital impression a potential customer gets. A well-designed page can:
 
-## 2. Objectives
+- Build trust through a professional, consistent visual identity
+- Clearly present the menu, pricing, and location
+- Make it easy for customers to place an order or get in touch
+- Compete visually with larger, more established food brands
 
-By completing this project, the following learning objectives were accomplished:
-
-- Built a fully responsive interface using Tailwind CSS utility classes.
-- Applied component-based frontend architecture using Laravel Blade Components.
-- Created reusable components (navbar, hero, feature-card, menu-card, pricing-card, testimonial-card, button, footer) to eliminate duplicated code.
-- Applied responsive layouts using Flexbox and CSS Grid across breakpoints (mobile, tablet, desktop).
-- Implemented a consistent design system — typography, color palette, spacing, and button styles.
-- Documented the frontend architecture and component design decisions in this README.
-
-## 3. Responsive Web Design
-
-- **Mobile-First Design:** The layout was built starting from small screens, then progressively enhanced for larger viewports using Tailwind's responsive prefixes (`sm:`, `lg:`).
-- **Responsive Breakpoints:** Grids and navigation change behavior at the `lg` (1024px) breakpoint — the navbar switches from a horizontal link list to a hamburger dropdown menu below `lg`, since the full link set plus logo and button did not fit comfortably at the `md` (768px) breakpoint on tablet-sized screens.
-- **Flexbox:** Used throughout the navbar, hero button groups, and footer social icons to align items along a single axis.
-- **CSS Grid:** Used for the Features, Menu Showcase, Pricing, and Testimonials sections to arrange cards responsively (e.g., `grid-cols-2` on mobile, `sm:grid-cols-3`, `lg:grid-cols-4` on larger screens).
-- **User Experience (UX):** Smooth scrolling, scroll-reveal animations, a sticky navbar with scroll-based shadow, and a mobile hamburger menu were added to improve navigation and visual feedback without being distracting.
-
-Responsive design is important because visitors access the site from a wide range of devices — phones, tablets, and desktops. A page that isn't responsive can break, become unreadable, or drive visitors away, directly hurting a business's ability to convert visitors into customers.
-
-## 4. Tailwind CSS
-
-- **Utility-First CSS:** Instead of writing custom CSS classes, styling is applied directly in markup using small, single-purpose utility classes (e.g., `px-6`, `text-stone-600`, `rounded-full`).
-- **Advantages:** Faster development, no context-switching between HTML and CSS files, and a constrained design system (spacing scale, color palette) that keeps the UI consistent.
-- **Responsive Utility Classes:** Prefixes like `sm:`, and `lg:` are used throughout (e.g., `grid-cols-2 lg:grid-cols-4`, `hidden lg:flex`) to change layout behavior at different screen sizes without writing media queries manually.
-- **Component Styling:** Each Blade component (buttons, cards) uses consistent utility patterns — for example, all cards share the same border, padding, and hover-transition conventions, keeping the UI visually unified.
-
-**Example from the project** (`button.blade.php`):
-```php
-$classes = match($variant) {
-    'primary' => 'bg-[#7A2E2E] text-[#FAF6EF] hover:bg-[#5f2323]',
-    'secondary' => 'bg-transparent text-stone-900 border border-stone-300 hover:border-stone-900',
-};
-```
-This shows utility-first styling combined with a PHP `match` expression to switch between button variants using only Tailwind classes.
-
-
-## 5. Blade Components
-
-**What are Blade Components?**
-Blade Components are reusable pieces of Laravel view code that combine HTML markup with dynamic data via props. They allow a piece of UI (like a button or a card) to be defined once and reused across the application with different data.
-
-**Why reusable components improve maintainability:**
-Instead of copy-pasting the same HTML for every pricing card or testimonial, a single component file defines the structure once. If the design needs to change (e.g., updating the card's border radius), it only needs to be updated in one place.
-
-**Benefits of modular UI development:**
-- Faster development through reuse
-- Easier debugging (isolated component logic)
-- Consistent design across the whole page
-- Cleaner, more readable page templates (`home.blade.php` mainly just calls components)
-
-**Example — `feature-card.blade.php`:**
-```php
-@props(['title', 'description'])
-
-<div class="py-8 border-t border-stone-200">
-    <h3 class="font-serif text-lg text-stone-900 mb-2">{{ $title }}</h3>
-    <p class="text-sm text-stone-600 leading-relaxed">{{ $description }}</p>
-</div>
-```
-
-**Used in `home.blade.php` as:**
-```blade
-<x-feature-card title="All-day breakfast" description="Belly's Tapa and Longganisa served with garlic rice and egg, any time of day." />
-```
-
-Components built for this project: `navbar`, `hero`, `feature-card`, `menu-card`, `pricing-card`, `testimonial-card`, `button`, `footer`.
-
-## 6. User Interface Design
-
-- **Color Palette:** A limited, warm palette based on Big Belly's brand identity — cream background (`#FAF6EF`), deep maroon accent (`#7A2E2E`), and stone/neutral tones for text, ensuring strong contrast and a cohesive food-brand feel.
-- **Typography:** Two-font pairing — `Fraunces` (serif) for headings to convey warmth and character, and `Instrument Sans` for body text for clean readability. A rounded display font (`Baloo 2`) is used sparingly for the brand wordmark to echo the restaurant's logo.
-- **Iconography:** Minimal use of icons (social media icons in the footer, a hamburger menu icon on mobile) to keep the design clean and content-focused.
-- **Button Styles:** Two variants — a solid primary button (maroon fill) for main actions, and an outlined secondary button for lower-emphasis actions, both with consistent padding and hover states.
-- **Card Design:** Cards use hairline borders instead of heavy shadows, consistent with the minimal aesthetic direction chosen for the brand.
-- **Layout Consistency:** All sections share the same max-width container (`max-w-5xl`), consistent vertical spacing (`py-16`), and consistent section header styling — creating rhythm as the user scrolls.
-
-These choices contribute to a better user experience by reducing visual noise, making it easy to scan menu items and prices, and reinforcing the restaurant's identity through consistent branding.
-
-## 7. Folder Structure
-week05-product-landing-page/
-│
-├── app/ → Laravel application logic (models, controllers)
-├── resources/
-│ ├── views/
-│ │ ├── layouts/ → Shared page layout (app.blade.php) — the HTML shell all pages extend
-│ │ ├── components/ → Reusable Blade components (navbar, hero, cards, button, footer)
-│ │ └── pages/ → Actual page views (home.blade.php) that assemble components
-│ ├── css/ → Tailwind entry point (app.css)
-│ └── js/ → Vanilla JS for interactivity (smooth scroll, scroll-reveal, mobile menu)
-├── public/
-│ └── images/ → Static image assets (logo, food photos) served directly
-├── screenshots/ → Screenshots of the final responsive interface across devices
-├── documentation/ → Before-and-after comparison images
-└── README.md → This file
-
-
-## 8. Screenshots
-
-All screenshots are located in the `/screenshots` folder.
-
-### Responsive Views
-| Desktop | Tablet | Mobile |
-|---|---|---|
-| ![Desktop View](screenshots/Desktop_view.png) | ![Tablet View](screenshots/Tablet_view.png) | ![Mobile View](screenshots/Mobile_view.png) |
-
-### Page Sections
-| Navigation Bar | Hero Section |
-|---|---|
-| ![Navigation Bar](screenshots/Navigation_bar.png) | ![Hero Section](screenshots/Hero_section.png) |
-
-| Features | Menu Showcase |
-|---|---|
-| ![Features](screenshots/Features.png) | ![Menu](screenshots/Menu.png) |
-
-| Pricing | Testimonials |
-|---|---|
-| ![Pricing](screenshots/Pricing.png) | ![Testimonial](screenshots/Testimonial.png) |
-
-| Footer |
-|---|
-| ![Footer](screenshots/Footer.png) |
-
-### Development & Repository
-| Blade Components Folder | GitHub Repository |
-|---|---|
-| ![Blade Components](screenshots/Blade_components.png) | ![GitHub Repo](screenshots/Github_repo.png) |
-
-## 9. Reflection
-
-Building this landing page for Big Belly's, a real restaurant in Los Baños, helped connect Laravel Blade Components and Tailwind CSS to an actual business need rather than a generic exercise. Translating the restaurant's real menu, branding, and Facebook page content into a structured, component-based interface reinforced how reusable components (like `menu-card` and `pricing-card`) reduce duplication while keeping the design consistent. It also highlighted the importance of testing responsiveness early, since the initial navbar broke on mobile until a hamburger menu was added.
+The purpose of this project was to take a real, existing small business — Master Katsu — and translate its actual offerings (chicken katsu variants, pricing, contact details, and locations) into a clean, modern, and fully responsive landing page using Laravel's component-based architecture.
 
 ---
 
-**Course:** ITST 302 – Client-Server Technologies
-**Activity:** Mini Project 04 – Responsive Product Landing Page
-**Student:** [Your Name] — Section IT-3D
+## 2. Objectives
+
+Through this project, the following learning objectives were accomplished:
+
+- Developed a fully responsive web interface using **Tailwind CSS** utility classes.
+- Built **reusable Laravel Blade Components** to eliminate duplicated markup across sections.
+- Applied responsive design principles that adapt the layout across desktop, tablet, and mobile screen sizes.
+- Organized the frontend following Laravel best practices, separating **layouts**, **components**, and **pages**.
+- Implemented a consistent visual system across typography, spacing, color, and interactive states (hover, focus).
+- Documented the frontend architecture, component design decisions, and UI evolution in this README.
+- Prepared the project for publishing as a public GitHub repository and professional portfolio piece.
+
+---
+
+## 3. Responsive Web Design
+
+This project follows a **mobile-first** approach — base styles are written for small screens first, then adjusted upward using Tailwind's responsive breakpoint prefixes (`sm:`, `md:`, `lg:`).
+
+Key responsive techniques used:
+
+| Technique | Where it's used |
+|---|---|
+| **Flexbox** (`flex`, `items-center`, `justify-between`) | Navbar layout, footer social icons, card content alignment |
+| **CSS Grid** (`grid`, `grid-cols-*`, `gap-*`) | Features grid, menu/product grid, pricing cards, testimonials |
+| **Responsive breakpoints** | Navigation collapses into a mobile hamburger menu below `md:`; grids scale from 1–2 columns on mobile up to 3–4 columns on desktop |
+| **Fluid images** | `object-cover` and `aspect-*` utilities keep food photography properly cropped at any screen size |
+
+**Why responsive design matters:** most customers discover local food businesses through their phones. If a page doesn't adapt cleanly to a small screen, potential customers bounce before they even see the menu. Testing across desktop, tablet, and mobile viewports (via browser DevTools) ensured the navbar, hero section, and card grids all remain usable and legible at every size.
+
+---
+
+## 4. Tailwind CSS
+
+Tailwind CSS was used throughout the project as a **utility-first** framework — instead of writing custom CSS classes and stylesheets, styling is composed directly in the markup using small, single-purpose utility classes.
+
+**Advantages experienced in this project:**
+- **Speed** — layouts and components were styled directly in Blade files without switching to separate `.css` files.
+- **Consistency** — reusing the same spacing (`p-6`, `gap-6`), color (`#E8A33D`, `#0B0908`), and rounding (`rounded-2xl`) utilities across components kept the design visually unified.
+- **Responsive utilities** — prefixes like `sm:`, `md:`, and `lg:` made it simple to adjust grid columns, spacing, and visibility per breakpoint without media query boilerplate.
+- **Built-in states** — hover and focus effects (`hover:border-[#E8A33D]/40`, `hover:-translate-y-1`, `focus-visible:ring-2`) were added inline, keeping interactive polish close to the markup it affects.
+
+**Example from the project** (feature card hover and spacing):
+```html
+<div class="bg-[#151210] border border-white/10 rounded-2xl p-6
+            hover:border-[#E8A33D]/40 hover:-translate-y-1
+            transition-all duration-300">
+```
+
+---
+
+## 5. Blade Components
+
+**Blade Components** are reusable pieces of UI in Laravel — self-contained `.blade.php` files that accept data through props and render consistent markup wherever they're called (e.g. `<x-feature-card />`).
+
+Reusable components built for this project:
+
+```
+resources/views/components/
+├── navbar.blade.php
+├── hero.blade.php
+├── feature-card.blade.php
+├── menu-card.blade.php
+├── pricing-card.blade.php
+├── testimonial-card.blade.php
+├── button.blade.php
+└── footer.blade.php
+```
+
+**Why components matter here:** the pricing section alone needed three near-identical cards (Solo Katsu, Family Bundle, Catering Tray) that only differ in plan name, price, and feature list. Writing that markup three times would have been repetitive and error-prone. Instead, one `pricing-card.blade.php` component accepts props and is called three times:
+
+```blade
+<x-pricing-card
+    plan="Family Bundle"
+    price="₱550"
+    :features="['Four katsu plates, mixed sauces', 'Shared rice and one side dish']"
+    :featured="true" />
+```
+
+This same pattern is used for `feature-card`, `menu-card`, and `testimonial-card` — each accepts props (`title`, `description`, `image`, `name`, `review`, etc.) and is reused multiple times across the page with different content, keeping the codebase DRY (Don't Repeat Yourself) and easy to maintain.
+
+The `button.blade.php` component centralizes all button styling (`primary` and `secondary` variants) so that changing the brand's accent color only requires editing one file instead of every button instance across the page.
+
+---
+
+## 6. User Interface Design
+
+**Color Palette**
+| Color | Hex | Use |
+|---|---|---|
+| Near-black | `#0B0908` | Page background, footer |
+| Dark charcoal | `#151210` / `#111010` | Card backgrounds |
+| Warm gold | `#E8A33D` | Accent color — logo, prices, tags, buttons, hover states |
+| White (various opacity) | `white/10` – `white/70` | Text hierarchy, borders |
+
+A limited, warm, high-contrast dark palette was chosen to evoke a cozy, appetite-appealing atmosphere (common in modern food branding) while keeping strong contrast for accessibility against the dark background.
+
+**Typography** — A serif italic font (`font-serif italic`) is used for the brand name and headings to give a slightly premium, restaurant-menu feel, paired with a clean sans-serif for body text and UI labels for readability.
+
+**Iconography** — Simple stroke-based SVG icons (checkmarks, arrows, hamburger menu, social icons) are used consistently at a small scale, matching the minimal, modern aesthetic.
+
+**Button Styles** — Two consistent variants: a solid **gold pill button** (`primary`) for main calls-to-action like "Order Now," and an **outlined button** (`secondary`) for lower-emphasis actions — keeping visual hierarchy clear across the page.
+
+**Card Design** — All cards (features, menu items, pricing, testimonials) share the same visual language: rounded corners (`rounded-2xl`), a dark card background, a subtle border, and a gold-tinted border/lift effect on hover — reinforcing that they belong to the same design system.
+
+**Layout Consistency** — Every major section shares the same `max-w-5xl mx-auto px-6` container and consistent vertical rhythm (`py-16`), so content lines up predictably as the user scrolls.
+
+---
+
+## 7. Folder Structure
+
+```
+week05-product-landing-page/
+│
+├── app/                        # Laravel application logic
+├── resources/
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   └── app.blade.php   # Main layout all pages extend
+│   │   ├── components/         # Reusable Blade components (navbar, hero, cards, etc.)
+│   │   └── pages/
+│   │       └── landing.blade.php  # The landing page itself
+│   └── css/                    # Tailwind entry stylesheet
+│
+├── public/
+│   └── images/                 # Food photography, logo, and other static assets
+│
+├── screenshots/                # Desktop / tablet / mobile / before-after screenshots
+├── documentation/              # Before-and-after comparison images
+└── README.md                   # This file
+```
+
+- **`layouts/`** holds the single master layout (`app.blade.php`) that defines the shared `<head>`, Tailwind CSS import, and content section — every page extends this instead of repeating boilerplate HTML.
+- **`components/`** holds every reusable UI piece described above.
+- **`pages/`** holds the actual route-facing views, currently just `landing.blade.php`, which assembles all components into the full page.
+- **`public/`** serves static assets like images referenced via `asset('images/...')`.
+- **`screenshots/`** and **`documentation/`** store visual evidence of the responsive design and the project's before-and-after evolution, per the lab requirements.
+
+---
+
+## 8. Screenshots
+
+> Screenshots below document the final responsive interface across devices and key sections. *(Add images to the `screenshots/` folder and update the paths below.)*
+
+| Section | Screenshot |
+|---|---|
+| Desktop View | `screenshots/desktop-view.png` |
+| Tablet View | `screenshots/tablet-view.png` |
+| Mobile View | `screenshots/mobile-view.png` |
+| Navigation Bar | `screenshots/navbar.png` |
+| Hero Section | `screenshots/hero.png` |
+| Features Section | `screenshots/features.png` |
+| Pricing Section | `screenshots/pricing.png` |
+| Testimonials | `screenshots/testimonials.png` |
+| Footer | `screenshots/footer.png` |
+| Blade Components Folder | `screenshots/components-folder.png` |
+| GitHub Repository | `screenshots/github-repo.png` |
+
+---
+
+## 9. Before-and-After Comparison
+
+> *(Add before/after screenshots to the `documentation/` folder.)*
+
+**Before** — Initial wireframe / early prototype with basic unstyled layout and placeholder content.
+`documentation/before.png`
+
+**After** — Final polished, responsive interface with the dark/gold Master Katsu brand identity, boxed cards, hover interactions, and consistent spacing across all sections.
+`documentation/after.png`
+
+---
+
+## 10. Tech Stack
+
+- **Laravel** — backend framework and Blade templating
+- **Blade Components** — reusable, prop-driven UI pieces
+- **Tailwind CSS** — utility-first responsive styling
+- **Vite** — asset bundling for CSS/JS
+
+---
+
+## Author
+
+**Amador Julius Ecer**
+ITST 302 – Client-Server Technologies
+Week 5 – Mini Project 04
