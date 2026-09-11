@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Master Katsu — Responsive Product Landing Page
 
 A responsive landing page built for **Master Katsu**, a home-style chicken katsu food business serving Brgy. San Roque and Brgy. Nanhaya, Victoria, Laguna. This project was developed as part of **ITST 302 – Client-Server Technologies, Week 5 Laboratory Activity (Mini Project 04)**, using **Laravel**, **Blade Components**, and **Tailwind CSS**.
@@ -206,3 +207,6 @@ week05-product-landing-page/
 **Amador Julius Ecer**
 ITST 302 – Client-Server Technologies
 Week 5 – Mini Project 04
+=======
+
+>>>>>>> 7cbe29efd4d3822ce5df2a307026e2b84d7d88f7
