@@ -162,37 +162,41 @@ week05-product-landing-page/
 
 ## 8. Screenshots
 
-> Screenshots below document the final responsive interface across devices and key sections. *(Add images to the `screenshots/` folder and update the paths below.)*
+Screenshots below document the final responsive interface across devices and key sections.
 
-| Section | Screenshot |
-|---|---|
-| Desktop View | `screenshots/desktop-view.png` |
-| Tablet View | `screenshots/tablet-view.png` |
-| Mobile View | `screenshots/mobile-view.png` |
-| Navigation Bar | `screenshots/navbar.png` |
-| Hero Section | `screenshots/hero.png` |
-| Features Section | `screenshots/features.png` |
-| Pricing Section | `screenshots/pricing.png` |
-| Testimonials | `screenshots/testimonials.png` |
-| Footer | `screenshots/footer.png` |
-| Blade Components Folder | `screenshots/components-folder.png` |
-| GitHub Repository | `screenshots/github-repo.png` |
+### Desktop View
+![Desktop View](screenshots/desktop-view.png)
+
+### Tablet View
+![Tablet View](screenshots/tablet-view.png)
+
+### Mobile View
+![Mobile View](screenshots/mobile-view.png)
+
+### Navigation Bar
+![Navigation Bar](screenshots/navbar.png)
+
+### Hero Section
+![Hero Section](screenshots/hero.png)
+
+### Features Section
+![Features Section](screenshots/features.png)
+
+### Pricing Section
+![Pricing Section](screenshots/pricing.png)
+
+### Testimonials
+![Testimonials](screenshots/testimonials.png)
+
+### Blade Components Folder
+![Blade Components Folder](screenshots/components-folder.png)
+
+### GitHub Repository
+![GitHub Repository](screenshots/github-repo.png)
 
 ---
 
-## 9. Before-and-After Comparison
-
-> *(Add before/after screenshots to the `documentation/` folder.)*
-
-**Before** — Initial wireframe / early prototype with basic unstyled layout and placeholder content.
-`documentation/before.png`
-
-**After** — Final polished, responsive interface with the dark/gold Master Katsu brand identity, boxed cards, hover interactions, and consistent spacing across all sections.
-`documentation/after.png`
-
----
-
-## 10. Tech Stack
+## 9. Tech Stack
 
 - **Laravel** — backend framework and Blade templating
 - **Blade Components** — reusable, prop-driven UI pieces
